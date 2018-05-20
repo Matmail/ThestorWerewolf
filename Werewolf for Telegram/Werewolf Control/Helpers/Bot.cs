@@ -52,7 +52,7 @@ namespace Werewolf_Control.Helpers
         internal delegate void ChatCommandMethod(Update u, string[] args);
         internal static List<Command> Commands = new List<Command>();
 #if DEBUG
-        internal static string LanguageDirectory => Path.GetFullPath(Path.Combine(RootDirectory, @"..\..\..\Languages"));
+           internal static string LanguageDirectory => Path.GetFullPath(Path.Combine(RootDirectory, @"..\..\Languages"));
 #else
         internal static string LanguageDirectory => Path.GetFullPath(Path.Combine(RootDirectory, @"..\..\Languages"));
 #endif
@@ -107,7 +107,7 @@ namespace Werewolf_Control.Helpers
             Api.CallbackQueryReceived += UpdateHandler.CallbackReceived;
             Api.ReceiveError += ApiOnReceiveError;
             //Api.OnReceiveGeneralError += ApiOnOnReceiveGeneralError;
-            Api.StatusChanged += ApiOnStatusChanged;
+            //Api.StatusChanged += ApiOnStatusChanged;
             //Api.UpdatesReceived += ApiOnUpdatesReceived;
             Me = Api.GetMeAsync().Result;
             //Api.OnMessage += ApiOnOnMessage;

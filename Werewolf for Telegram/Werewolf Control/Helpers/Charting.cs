@@ -201,7 +201,7 @@ sum(count(x.Gameid)) over (partition by players) as Games
         private static void SendImage(string path, long id)
         {
             var fs = new FileStream(path, FileMode.Open);
-            Bot.Api.SendPhotoAsync(id, new FileToSend("chart.png", fs));
+          Bot.Api.SendPhotoAsync(id, new FileToSend("chart.png", fs));
         }
     }
 

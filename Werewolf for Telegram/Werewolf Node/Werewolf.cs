@@ -185,9 +185,11 @@ namespace Werewolf_Node
                 });
                 FirstMessage = GetLocaleString(Chaos ? "PlayerStartedChaosGame" : "PlayerStartedGame", u.FirstName);
 #if DEBUG
-                _joinMsgId = Program.Bot.SendDocumentAsync(chatid, new FileToSend("CgADAwADmAIAAnQXsQdKO62ILjJQMQI"), FirstMessage, replyMarkup: _joinButton).Result.MessageId;
+                _joinMsgId = Program.Bot.SendDocumentAsync(chatid, new FileToSend("CgADAgADSwIAAhA_yUrrYsX5BcqIEwI"), FirstMessage, replyMarkup: _joinButton).Result.MessageId;
+
 #else
                 _joinMsgId = Program.Bot.SendDocumentAsync(chatid, new FileToSend(GetRandomImage(Chaos ? StartChaosGame : StartGame)), FirstMessage, replyMarkup: _joinButton).Result.MessageId;
+               
 #endif
 
                 //let's keep this on for a while, then we will delete it

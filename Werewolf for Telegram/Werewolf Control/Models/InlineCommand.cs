@@ -77,26 +77,26 @@ namespace Werewolf_Control.Models
                         if (data.ShowBadge)
                         {
                             if ((p.DonationLevel ?? 0) >= 100)
-                                Content += "Donation Level: 🥇";
+                                Content += " "; //Content += "Donation Level: 🥇";
                             else if ((p.DonationLevel ?? 0) >= 50)
-                                Content += "Donation Level: 🥈";
+                                Content += " "; //Donation Level: 🥈
                             else if ((p.DonationLevel ?? 0) >= 10)
-                                Content += "Donation Level: 🥉";
+                                Content += " "; //Donation Level: 🥉
                             if (p.Founder ?? false)
-                                Content += "\n💎 FOUNDER STATUS! 💎\n<i>(This player donated at least $10USD before there was any reward for donating)</i>";
+                                Content += "\n🤷🏻‍♀️  The host! 🤘\n<i>(This player is hosting the bot for you to play!)</i>";
                         }
                     }
                     else
                     {
                         if ((p.DonationLevel ?? 0) >= 100)
-                            Content += "Donation Level: 🥇";
+                            Content += " "; //Donation Level: 🥇
                         else if ((p.DonationLevel ?? 0) >= 50)
-                            Content += "Donation Level: 🥈";
+                            Content += " "; //Donation Level: 🥈
                         else if ((p.DonationLevel ?? 0) >= 10)
-                            Content += "Donation Level: 🥉";
+                            Content += " "; //Donation Level: 🥉
 
                         if (p.Founder ?? false)
-                            Content += "\n💎 FOUNDER STATUS! 💎\n<i>(This player donated at least $10USD before there was any reward for donating</i>";
+                            Content += "\n🤷🏻‍♀️  The host! 🤘\n<i>(This player is hosting the bot for you to play!)</i>";
                     }
 
                 }

@@ -213,12 +213,12 @@ namespace Werewolf_Control
 
                     if (String.IsNullOrEmpty(args[1]))
                     {
-                        var msg = $"Hi there! I'm @{Bot.Me.Username}, and I moderate games of Werewolf." +
-                                  $"\nJoin the main group @werewolfgame, or to find a group to play in, you can use /grouplist." +
-                                  $"\nFor role information, use /rolelist." +
+                        var msg = $"Hi there! I'm @{Bot.Me.Username}, and I moderate games of Thestor." +
+                                  $"\nJoin the main group [here](ttps://t.me/joinchat/G1HSaw-Zh_rI5eONV3l7tQ), or to find a group to play in, you can use /grouplist." +
+                        $"\nFor role information, use /rolelist." +
                                   $"\nIf you want to set your default language, use /setlang." +
-                                  $"\nBe sure to stop by <a href=\"https://telegram.me/werewolfsupport\">Werewolf Support</a> for any questions, and subscribe to @werewolfdev for updates from the developer." +
-                                  $"\nMore infomation can be found <a href=\"https://www.tgwerewolf.com/?referrer=start\">here</a>!";
+                                  $"\nShould you have any questions, feel free to ask @thestorseleukos or any of the other admins." +
+                                  $"\n Should you encounter a problem with me, contact @rainzy. ";
                         Bot.Send(msg, u.Message.Chat.Id);
                         return;
                     }

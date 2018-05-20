@@ -27,7 +27,7 @@ namespace Werewolf_Web.Controllers
             using (var DB = new WWContext())
             {
                 var groupName = DB.Groups.FirstOrDefault(x => x.GroupId == id)?.Name ?? "Invalid Group Id";
-                ViewBag.Description = $"Werewolf for Telegram. Stats for {groupName}";
+                ViewBag.Description = $"Thestor for Telegram. Stats for {groupName}";
                 ViewBag.Title = groupName;
             }
             return View();

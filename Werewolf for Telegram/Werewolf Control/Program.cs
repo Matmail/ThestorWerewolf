@@ -76,9 +76,9 @@ namespace Werewolf_Control
 #if BETA || DEBUG
             var aToken = Helpers.RegHelper.GetRegValue("BotanBetaAPI");
 #else
-            var aToken = Helpers.RegHelper.GetRegValue("BotanReleaseAPI");
+            //var aToken = Helpers.RegHelper.GetRegValue("BotanReleaseAPI");
 #endif
-            Analytics = new BotanIO.Api.Botan(aToken);
+          //Analytics = new BotanIO.Api.Botan(aToken);
 
             //Initialize the TCP connections
             TCP.Initialize();
