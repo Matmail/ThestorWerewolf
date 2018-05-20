@@ -1,7 +1,6 @@
-﻿USE [master]
+USE [master]
 GO
-
-/****** Object:  Database [werewolf]    Script Date: 7/26/2016 9:08:39 AM ******/
+/****** Object:  Database [werewolf]    Script Date: 5/17/2018 3:32:41 PM ******/
 CREATE DATABASE [werewolf]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -9,114 +8,77 @@ CREATE DATABASE [werewolf]
  LOG ON 
 ( NAME = N'werewolf_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\werewolf_log.ldf' , SIZE = 241216KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
 GO
-
 ALTER DATABASE [werewolf] SET COMPATIBILITY_LEVEL = 120
 GO
-
 IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
 begin
 EXEC [werewolf].[dbo].[sp_fulltext_database] @action = 'enable'
 end
 GO
-
 ALTER DATABASE [werewolf] SET ANSI_NULL_DEFAULT OFF 
 GO
-
 ALTER DATABASE [werewolf] SET ANSI_NULLS OFF 
 GO
-
 ALTER DATABASE [werewolf] SET ANSI_PADDING OFF 
 GO
-
 ALTER DATABASE [werewolf] SET ANSI_WARNINGS OFF 
 GO
-
 ALTER DATABASE [werewolf] SET ARITHABORT OFF 
 GO
-
 ALTER DATABASE [werewolf] SET AUTO_CLOSE OFF 
 GO
-
 ALTER DATABASE [werewolf] SET AUTO_SHRINK OFF 
 GO
-
 ALTER DATABASE [werewolf] SET AUTO_UPDATE_STATISTICS ON 
 GO
-
 ALTER DATABASE [werewolf] SET CURSOR_CLOSE_ON_COMMIT OFF 
 GO
-
 ALTER DATABASE [werewolf] SET CURSOR_DEFAULT  GLOBAL 
 GO
-
 ALTER DATABASE [werewolf] SET CONCAT_NULL_YIELDS_NULL OFF 
 GO
-
 ALTER DATABASE [werewolf] SET NUMERIC_ROUNDABORT OFF 
 GO
-
 ALTER DATABASE [werewolf] SET QUOTED_IDENTIFIER OFF 
 GO
-
 ALTER DATABASE [werewolf] SET RECURSIVE_TRIGGERS OFF 
 GO
-
 ALTER DATABASE [werewolf] SET  DISABLE_BROKER 
 GO
-
 ALTER DATABASE [werewolf] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
 GO
-
 ALTER DATABASE [werewolf] SET DATE_CORRELATION_OPTIMIZATION OFF 
 GO
-
 ALTER DATABASE [werewolf] SET TRUSTWORTHY OFF 
 GO
-
 ALTER DATABASE [werewolf] SET ALLOW_SNAPSHOT_ISOLATION OFF 
 GO
-
 ALTER DATABASE [werewolf] SET PARAMETERIZATION SIMPLE 
 GO
-
 ALTER DATABASE [werewolf] SET READ_COMMITTED_SNAPSHOT OFF 
 GO
-
 ALTER DATABASE [werewolf] SET HONOR_BROKER_PRIORITY OFF 
 GO
-
 ALTER DATABASE [werewolf] SET RECOVERY SIMPLE 
 GO
-
 ALTER DATABASE [werewolf] SET  MULTI_USER 
 GO
-
 ALTER DATABASE [werewolf] SET PAGE_VERIFY CHECKSUM  
 GO
-
 ALTER DATABASE [werewolf] SET DB_CHAINING OFF 
 GO
-
 ALTER DATABASE [werewolf] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
 GO
-
 ALTER DATABASE [werewolf] SET TARGET_RECOVERY_TIME = 0 SECONDS 
 GO
-
 ALTER DATABASE [werewolf] SET DELAYED_DURABILITY = DISABLED 
 GO
-
-ALTER DATABASE [werewolf] SET  READ_WRITE 
-GO
-
 USE [werewolf]
 GO
-/****** Object:  Table [db_owner].[BotStatus]    Script Date: 9/6/2016 4:18:23 PM ******/
+/****** Object:  Table [db_owner].[BotStatus]    Script Date: 5/17/2018 3:32:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
-GO
-SET ANSI_PADDING ON
 GO
 CREATE TABLE [db_owner].[BotStatus](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
@@ -128,11 +90,8 @@ CREATE TABLE [db_owner].[BotStatus](
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-
 GO
-SET ANSI_PADDING OFF
-GO
-/****** Object:  Table [db_owner].[ContestTerms]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  Table [db_owner].[ContestTerms]    Script Date: 5/17/2018 3:32:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -145,9 +104,8 @@ CREATE TABLE [db_owner].[ContestTerms](
 	[TelegramId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-
 GO
-/****** Object:  Table [db_owner].[GlobalBan]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  Table [db_owner].[GlobalBan]    Script Date: 5/17/2018 3:32:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -165,51 +123,8 @@ CREATE TABLE [db_owner].[GlobalBan](
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-
 GO
-/****** Object:  Table [dbo].[__MigrationHistory]    Script Date: 9/6/2016 4:18:24 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-SET ANSI_PADDING ON
-GO
-CREATE TABLE [dbo].[__MigrationHistory](
-	[MigrationId] [nvarchar](150) NOT NULL,
-	[ContextKey] [nvarchar](300) NOT NULL,
-	[Model] [varbinary](max) NOT NULL,
-	[ProductVersion] [nvarchar](32) NOT NULL,
- CONSTRAINT [PK_dbo.__MigrationHistory] PRIMARY KEY CLUSTERED 
-(
-	[MigrationId] ASC,
-	[ContextKey] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-
-GO
-SET ANSI_PADDING OFF
-GO
-/****** Object:  Table [dbo].[Action]    Script Date: 9/6/2016 4:18:24 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Action](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[GameId] [int] NOT NULL,
-	[TimeStamp] [datetime] NOT NULL,
-	[InitiatorId] [int] NOT NULL,
-	[ReceiverId] [int] NOT NULL,
-	[ActionTaken] [nvarchar](50) NOT NULL,
-	[Day] [int] NOT NULL,
- CONSTRAINT [PK_Action] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
-GO
-/****** Object:  Table [dbo].[Admin]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  Table [dbo].[Admin]    Script Date: 5/17/2018 3:32:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -221,100 +136,8 @@ CREATE TABLE [dbo].[Admin](
 	[UserId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-
 GO
-/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 9/6/2016 4:18:24 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[AspNetRoles](
-	[Id] [nvarchar](128) NOT NULL,
-	[Name] [nvarchar](256) NOT NULL,
- CONSTRAINT [PK_dbo.AspNetRoles] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
-GO
-/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 9/6/2016 4:18:24 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[AspNetUserClaims](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[UserId] [nvarchar](128) NOT NULL,
-	[ClaimType] [nvarchar](max) NULL,
-	[ClaimValue] [nvarchar](max) NULL,
- CONSTRAINT [PK_dbo.AspNetUserClaims] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-
-GO
-/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 9/6/2016 4:18:24 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[AspNetUserLogins](
-	[LoginProvider] [nvarchar](128) NOT NULL,
-	[ProviderKey] [nvarchar](128) NOT NULL,
-	[UserId] [nvarchar](128) NOT NULL,
- CONSTRAINT [PK_dbo.AspNetUserLogins] PRIMARY KEY CLUSTERED 
-(
-	[LoginProvider] ASC,
-	[ProviderKey] ASC,
-	[UserId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
-GO
-/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 9/6/2016 4:18:24 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[AspNetUserRoles](
-	[UserId] [nvarchar](128) NOT NULL,
-	[RoleId] [nvarchar](128) NOT NULL,
- CONSTRAINT [PK_dbo.AspNetUserRoles] PRIMARY KEY CLUSTERED 
-(
-	[UserId] ASC,
-	[RoleId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
-GO
-/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 9/6/2016 4:18:24 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[AspNetUsers](
-	[Id] [nvarchar](128) NOT NULL,
-	[Email] [nvarchar](256) NULL,
-	[EmailConfirmed] [bit] NOT NULL,
-	[PasswordHash] [nvarchar](max) NULL,
-	[SecurityStamp] [nvarchar](max) NULL,
-	[PhoneNumber] [nvarchar](max) NULL,
-	[PhoneNumberConfirmed] [bit] NOT NULL,
-	[TwoFactorEnabled] [bit] NOT NULL,
-	[LockoutEndDateUtc] [datetime] NULL,
-	[LockoutEnabled] [bit] NOT NULL,
-	[AccessFailedCount] [int] NOT NULL,
-	[UserName] [nvarchar](256) NOT NULL,
- CONSTRAINT [PK_dbo.AspNetUsers] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-
-GO
-/****** Object:  Table [dbo].[DailyCount]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  Table [dbo].[DailyCount]    Script Date: 5/17/2018 3:32:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -330,9 +153,8 @@ CREATE TABLE [dbo].[DailyCount](
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-
 GO
-/****** Object:  Table [dbo].[Game]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  Table [dbo].[Game]    Script Date: 5/17/2018 3:32:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -351,9 +173,8 @@ CREATE TABLE [dbo].[Game](
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-
 GO
-/****** Object:  Table [dbo].[GameKill]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  Table [dbo].[GameKill]    Script Date: 5/17/2018 3:32:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -371,9 +192,8 @@ CREATE TABLE [dbo].[GameKill](
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-
 GO
-/****** Object:  Table [dbo].[GamePlayer]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  Table [dbo].[GamePlayer]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -390,9 +210,8 @@ CREATE TABLE [dbo].[GamePlayer](
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-
 GO
-/****** Object:  Table [dbo].[GlobalStats]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  Table [dbo].[GlobalStats]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -422,9 +241,8 @@ PRIMARY KEY CLUSTERED
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-
 GO
-/****** Object:  Table [dbo].[Group]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  Table [dbo].[Group]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -458,14 +276,14 @@ CREATE TABLE [dbo].[Group](
 	[MaxExtend] [int] NULL,
 	[EnableSecretLynch] [bit] NULL,
 	[Flags] [bigint] NULL,
+	[RandomModes] [bit] NULL,
  CONSTRAINT [PK_Group] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-
 GO
-/****** Object:  Table [dbo].[GroupAdmin]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  Table [dbo].[GroupAdmin]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -474,9 +292,29 @@ CREATE TABLE [dbo].[GroupAdmin](
 	[GroupId] [int] NOT NULL,
 	[PlayerId] [int] NOT NULL
 ) ON [PRIMARY]
-
 GO
-/****** Object:  Table [dbo].[GroupStats]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  Table [dbo].[GroupRanking]    Script Date: 5/17/2018 3:32:43 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[GroupRanking](
+	[GroupId] [int] NOT NULL,
+	[Language] [nvarchar](450) NOT NULL,
+	[PlayersCount] [int] NOT NULL,
+	[MinutesPlayed] [decimal](18, 10) NOT NULL,
+	[LastRefresh] [datetime] NOT NULL,
+	[Ranking] [decimal](18, 10) NULL,
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[GamesPlayed] [int] NOT NULL,
+	[Show] [bit] NULL,
+ CONSTRAINT [PK_groupranking] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[GroupStats]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -500,9 +338,8 @@ PRIMARY KEY CLUSTERED
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-
 GO
-/****** Object:  Table [dbo].[KillMethod]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  Table [dbo].[KillMethod]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -515,9 +352,8 @@ CREATE TABLE [dbo].[KillMethod](
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-
 GO
-/****** Object:  Table [dbo].[NotifyGame]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  Table [dbo].[NotifyGame]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -526,9 +362,8 @@ CREATE TABLE [dbo].[NotifyGame](
 	[UserId] [int] NOT NULL,
 	[GroupId] [bigint] NOT NULL
 ) ON [PRIMARY]
-
 GO
-/****** Object:  Table [dbo].[Player]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  Table [dbo].[Player]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -558,9 +393,8 @@ CREATE TABLE [dbo].[Player](
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-
 GO
-/****** Object:  Table [dbo].[PlayerStats]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  Table [dbo].[PlayerStats]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -582,9 +416,22 @@ PRIMARY KEY CLUSTERED
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-
 GO
-/****** Object:  View [db_owner].[v_BotInGroups]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  Table [dbo].[RefreshDate]    Script Date: 5/17/2018 3:32:43 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RefreshDate](
+	[Lock] [char](1) NOT NULL,
+	[Date] [datetime] NOT NULL,
+ CONSTRAINT [PK_RefreshDate] PRIMARY KEY CLUSTERED 
+(
+	[Lock] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  View [db_owner].[v_BotInGroups]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -597,7 +444,7 @@ WHERE        (BotInGroup IS NOT NULL)
 GROUP BY BotInGroup
 
 GO
-/****** Object:  View [db_owner].[v_InactivePlayersMain]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  View [db_owner].[v_InactivePlayersMain]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -614,7 +461,7 @@ FROM            dbo.Player AS p INNER JOIN
 WHERE        (x.last < DATEADD(day, - 14, GETDATE()))
 
 GO
-/****** Object:  View [db_owner].[v_LanguageCounts]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  View [db_owner].[v_LanguageCounts]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -627,7 +474,7 @@ GROUP BY Language
 ORDER BY Groups DESC
 
 GO
-/****** Object:  View [db_owner].[v_NonDefaultGroups]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  View [db_owner].[v_NonDefaultGroups]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -649,7 +496,7 @@ WHERE        (DayTime <> 60) OR
                          (DisableFlee = 1)
 
 GO
-/****** Object:  View [db_owner].[v_PreferredGroups]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  View [db_owner].[v_PreferredGroups]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -661,7 +508,7 @@ FROM            dbo.[Group]
 WHERE        (Preferred = 1)
 
 GO
-/****** Object:  View [db_owner].[v_PublicGroups]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  View [db_owner].[v_PublicGroups]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -674,7 +521,7 @@ FROM            dbo.[Group]
 WHERE        (GroupLink IS NOT NULL) AND (GroupId <> - 1001055238687) AND (BotInGroup = 1) AND (GroupId <> - 1001062468289)
 
 GO
-/****** Object:  View [db_owner].[v_SummaryTotals]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  View [db_owner].[v_SummaryTotals]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -698,7 +545,7 @@ SELECT        (SELECT        COUNT(Id) AS Expr1
                                                          dbo.Game AS g ON gp.GameId = g.Id) AS Since
 
 GO
-/****** Object:  View [db_owner].[v_WaitList]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  View [db_owner].[v_WaitList]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -711,7 +558,7 @@ FROM            dbo.NotifyGame AS n INNER JOIN
                          dbo.Player AS p ON p.TelegramId = n.UserId
 
 GO
-/****** Object:  View [db_owner].[v_WinRatios]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  View [db_owner].[v_WinRatios]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -742,7 +589,18 @@ HAVING COUNT (gp.PlayerId)> = 5
 GROUP BY x.Winner, x.Players
 
 GO
-/****** Object:  View [dbo].[v_IdleKill24HoursMain]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  View [dbo].[v_GroupRanking]    Script Date: 5/17/2018 3:32:43 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE view [dbo].[v_GroupRanking] as select grp.id as GroupId, grp.groupid as TelegramId, grprk.language as Language, grp.description as Description, grp.grouplink as GroupLink, grprk.ranking as Ranking, grprk.LastRefresh, grp.Name
+
+from [group] grp 
+join groupranking grprk on grp.id = grprk.groupid
+ where (grp.preferred = 1 or grp.preferred is null) and not (grouplink is null) and (grprk.show is null or grprk.show = 1)
+GO
+/****** Object:  View [dbo].[v_IdleKill24HoursMain]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -759,88 +617,12 @@ and TimeStarted > DATEADD(day,-1,GETDATE())
 group by p.Name, p.UserName
 
 GO
-ALTER TABLE [dbo].[Player] ADD  CONSTRAINT [DF_Player_Language]  DEFAULT ('English') FOR [Language]
-GO
-ALTER TABLE [dbo].[Action]  WITH CHECK ADD  CONSTRAINT [FK_Action_Game] FOREIGN KEY([GameId])
-REFERENCES [dbo].[Game] ([Id])
-GO
-ALTER TABLE [dbo].[Action] CHECK CONSTRAINT [FK_Action_Game]
-GO
-ALTER TABLE [dbo].[Action]  WITH CHECK ADD  CONSTRAINT [FK_Action_Initiator] FOREIGN KEY([InitiatorId])
-REFERENCES [dbo].[Player] ([Id])
-GO
-ALTER TABLE [dbo].[Action] CHECK CONSTRAINT [FK_Action_Initiator]
-GO
-ALTER TABLE [dbo].[Action]  WITH CHECK ADD  CONSTRAINT [FK_Action_Receiver] FOREIGN KEY([ReceiverId])
-REFERENCES [dbo].[Player] ([Id])
-GO
-ALTER TABLE [dbo].[Action] CHECK CONSTRAINT [FK_Action_Receiver]
-GO
-ALTER TABLE [dbo].[AspNetUserClaims]  WITH CHECK ADD  CONSTRAINT [FK_dbo.AspNetUserClaims_dbo.AspNetUsers_UserId] FOREIGN KEY([UserId])
-REFERENCES [dbo].[AspNetUsers] ([Id])
-ON DELETE CASCADE
-GO
-ALTER TABLE [dbo].[AspNetUserClaims] CHECK CONSTRAINT [FK_dbo.AspNetUserClaims_dbo.AspNetUsers_UserId]
-GO
-ALTER TABLE [dbo].[AspNetUserLogins]  WITH CHECK ADD  CONSTRAINT [FK_dbo.AspNetUserLogins_dbo.AspNetUsers_UserId] FOREIGN KEY([UserId])
-REFERENCES [dbo].[AspNetUsers] ([Id])
-ON DELETE CASCADE
-GO
-ALTER TABLE [dbo].[AspNetUserLogins] CHECK CONSTRAINT [FK_dbo.AspNetUserLogins_dbo.AspNetUsers_UserId]
-GO
-ALTER TABLE [dbo].[AspNetUserRoles]  WITH CHECK ADD  CONSTRAINT [FK_dbo.AspNetUserRoles_dbo.AspNetRoles_RoleId] FOREIGN KEY([RoleId])
-REFERENCES [dbo].[AspNetRoles] ([Id])
-ON DELETE CASCADE
-GO
-ALTER TABLE [dbo].[AspNetUserRoles] CHECK CONSTRAINT [FK_dbo.AspNetUserRoles_dbo.AspNetRoles_RoleId]
-GO
-ALTER TABLE [dbo].[AspNetUserRoles]  WITH CHECK ADD  CONSTRAINT [FK_dbo.AspNetUserRoles_dbo.AspNetUsers_UserId] FOREIGN KEY([UserId])
-REFERENCES [dbo].[AspNetUsers] ([Id])
-ON DELETE CASCADE
-GO
-ALTER TABLE [dbo].[AspNetUserRoles] CHECK CONSTRAINT [FK_dbo.AspNetUserRoles_dbo.AspNetUsers_UserId]
-GO
 ALTER TABLE [dbo].[Game]  WITH CHECK ADD  CONSTRAINT [FK_Game_Group] FOREIGN KEY([GrpId])
 REFERENCES [dbo].[Group] ([Id])
 GO
 ALTER TABLE [dbo].[Game] CHECK CONSTRAINT [FK_Game_Group]
 GO
-ALTER TABLE [dbo].[GameKill]  WITH CHECK ADD  CONSTRAINT [FK_GameKill_Game] FOREIGN KEY([GameId])
-REFERENCES [dbo].[Game] ([Id])
-GO
-ALTER TABLE [dbo].[GameKill] CHECK CONSTRAINT [FK_GameKill_Game]
-GO
-ALTER TABLE [dbo].[GameKill]  WITH CHECK ADD  CONSTRAINT [FK_GameKill_Killer] FOREIGN KEY([KillerId])
-REFERENCES [dbo].[Player] ([Id])
-GO
-ALTER TABLE [dbo].[GameKill] CHECK CONSTRAINT [FK_GameKill_Killer]
-GO
-ALTER TABLE [dbo].[GameKill]  WITH CHECK ADD  CONSTRAINT [FK_GameKill_KillMethod] FOREIGN KEY([KillMethodId])
-REFERENCES [dbo].[KillMethod] ([Id])
-GO
-ALTER TABLE [dbo].[GameKill] CHECK CONSTRAINT [FK_GameKill_KillMethod]
-GO
-ALTER TABLE [dbo].[GameKill]  WITH CHECK ADD  CONSTRAINT [FK_GameKill_Victim] FOREIGN KEY([VictimId])
-REFERENCES [dbo].[Player] ([Id])
-GO
-ALTER TABLE [dbo].[GameKill] CHECK CONSTRAINT [FK_GameKill_Victim]
-GO
-ALTER TABLE [dbo].[GamePlayer]  WITH CHECK ADD  CONSTRAINT [FK_GamePlayer_Player] FOREIGN KEY([PlayerId])
-REFERENCES [dbo].[Player] ([Id])
-GO
-ALTER TABLE [dbo].[GamePlayer] CHECK CONSTRAINT [FK_GamePlayer_Player]
-GO
-ALTER TABLE [dbo].[GroupAdmin]  WITH CHECK ADD  CONSTRAINT [FK_GroupAdmin_Group] FOREIGN KEY([GroupId])
-REFERENCES [dbo].[Group] ([Id])
-GO
-ALTER TABLE [dbo].[GroupAdmin] CHECK CONSTRAINT [FK_GroupAdmin_Group]
-GO
-ALTER TABLE [dbo].[GroupAdmin]  WITH CHECK ADD  CONSTRAINT [FK_GroupAdmin_Player] FOREIGN KEY([PlayerId])
-REFERENCES [dbo].[Player] ([Id])
-GO
-ALTER TABLE [dbo].[GroupAdmin] CHECK CONSTRAINT [FK_GroupAdmin_Player]
-GO
-/****** Object:  StoredProcedure [dbo].[getDailyCounts]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  StoredProcedure [dbo].[getDailyCounts]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -875,7 +657,7 @@ FROM            (SELECT        SUM(games) AS Games, Day, COUNT(GroupId) AS Group
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[GetIdleKills24Hours]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetIdleKills24Hours]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -905,7 +687,7 @@ and gk.TimeStamp > DATEADD(day,-1,GETDATE())
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[getPlayTime]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  StoredProcedure [dbo].[getPlayTime]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -934,7 +716,7 @@ having count(gp.id) = @playerCount) x
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[getRoles]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  StoredProcedure [dbo].[getRoles]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -959,7 +741,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[GlobalDay1Death]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  StoredProcedure [dbo].[GlobalDay1Death]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -991,7 +773,7 @@ order by pct desc;
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[GlobalDay1Lynch]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  StoredProcedure [dbo].[GlobalDay1Lynch]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1024,7 +806,7 @@ order by pct desc;
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[GlobalNight1Death]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  StoredProcedure [dbo].[GlobalNight1Death]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1056,7 +838,7 @@ order by pct desc
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[GlobalSurvivor]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  StoredProcedure [dbo].[GlobalSurvivor]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1083,7 +865,7 @@ order by pct desc
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[GroupDay1Death]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  StoredProcedure [dbo].[GroupDay1Death]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1120,7 +902,7 @@ order by pct desc;
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[GroupDay1Lynch]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  StoredProcedure [dbo].[GroupDay1Lynch]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1157,7 +939,7 @@ order by pct desc;
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[GroupNight1Death]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  StoredProcedure [dbo].[GroupNight1Death]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1194,7 +976,7 @@ order by pct desc;
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[GroupSurvivor]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  StoredProcedure [dbo].[GroupSurvivor]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1224,7 +1006,7 @@ order by pct desc
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[PlayerMostKilled]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  StoredProcedure [dbo].[PlayerMostKilled]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1251,7 +1033,7 @@ order by count(gk.id) desc
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[PlayerMostKilledBy]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  StoredProcedure [dbo].[PlayerMostKilledBy]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1281,7 +1063,7 @@ order by count(gk.id) desc
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[PlayerRoles]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  StoredProcedure [dbo].[PlayerRoles]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1310,7 +1092,7 @@ order by count(gp.id) desc
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[RestoreAccount]    Script Date: 9/6/2016 4:18:24 PM ******/
+/****** Object:  StoredProcedure [dbo].[RestoreAccount]    Script Date: 5/17/2018 3:32:43 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1352,6 +1134,8 @@ return @games;
 
 END
 
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Group', @level2type=N'COLUMN',@level2name=N'RandomModes'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
 Begin DesignProperties = 
@@ -2453,4 +2237,8 @@ End
 ' , @level0type=N'SCHEMA',@level0name=N'db_owner', @level1type=N'VIEW',@level1name=N'v_WinRatios'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'db_owner', @level1type=N'VIEW',@level1name=N'v_WinRatios'
+GO
+USE [master]
+GO
+ALTER DATABASE [werewolf] SET  READ_WRITE 
 GO
